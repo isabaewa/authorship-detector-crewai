@@ -1,9 +1,4 @@
 import streamlit as st
-import sys
-import os
-
-sys.path.append(os.path.dirname(__file__))
-
 from crew_setup import crew
 
 st.title("Diploma Authorship Detector")
@@ -44,3 +39,8 @@ if st.button("Start Crew"):
     st.subheader("Result")
 
     st.write(result)
+
+try:
+    result = crew.kickoff(inputs=inputs)
+except Exception as e:
+    st.error(f"Настоящая причина ошибки: {e}")

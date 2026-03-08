@@ -26,7 +26,7 @@ suspicious_text = st.text_area("Suspicious Diploma Chapter")
 st.header("Run Analysis")
 
 if st.button("Start Crew"):
-
+    # Формируем входные данные только при нажатии кнопки
     inputs = {
         "essay1": essay1,
         "essay2": essay2,
@@ -34,13 +34,14 @@ if st.button("Start Crew"):
         "suspicious_text": suspicious_text
     }
 
-    result = crew.kickoff(inputs=inputs)
-
-    st.subheader("Result")
-
-    st.write(result)
-
-try:
-    result = crew.kickoff(inputs=inputs)
-except Exception as e:
-    st.error(f"Настоящая причина ошибки: {e}")
+    with st.spinner("Агенты работают..."):
+        try:
+            # Запуск внутри блока try, чтобы поймать ошибки API
+            result = crew.kickoff(inputs=inputs)
+            
+            st.subheader("Result")
+            st.write(result)
+            
+        except Exception as e:
+            # Если возникнет проблема с ключом или регионом, вы увидите это здесь
+            st.error(f"Произошла ошибка при работе CrewAI: {e}")

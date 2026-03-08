@@ -1,9 +1,14 @@
 import os
 from crewai import Agent, Task, Crew, LLM
+import os
+from dotenv import load_dotenv
 
+load_dotenv() 
+
+API_KEY = os.getenv("CREWAI_API_KEY")  
 my_llm = LLM(
     model="gemini/gemini-3-flash-preview",
-    api_key=os.getenv("AIzaSyAPfILWgNmupQqA5B6lO9c_HRCcdOjttmc")
+    api_key=API_KEY
 )
 
 style_analyzer = Agent(

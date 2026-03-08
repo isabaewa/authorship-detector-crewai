@@ -1,6 +1,6 @@
 streamlit
-crewai
-langchain
+crewai==0.30.11
 openai
+langchain
 python-dotenv
-pydantic
+tiktoken

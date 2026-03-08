@@ -1,9 +1,2 @@
-streamlit
 crewai
-openai
-langchain
-python-dotenv
-tiktoken
-google-generativeai
-langchain-google-genai
 setuptools

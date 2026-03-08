@@ -1,6 +1,8 @@
 from crewai import Crew
 from crew_agents import style_analyzer, authorship_detector
 from crew_tasks import style_analysis_task, authorship_task
+from langchain_google_genai import ChatGoogleGenerativeAI
+import os
 
 crew = Crew(
     agents=[style_analyzer, authorship_detector],
